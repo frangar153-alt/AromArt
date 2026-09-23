@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AromArt — Creador de Velas Arterapéuticas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#inicio" class="nav__logo">🕯️ AromArt</a>
+    <ul class="nav__links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#configurador">Configurador</a></li>
+      <li><a href="#formula">Fórmula</a></li>
+      <li><a href="#aromaterapia">Aromaterapia</a></li>
+      <li><a href="#ia">IA</a></li>
+      <li><a href="#receta">Receta</a></li>
+      <li><a href="#recetario">Recetario</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header id="inicio" class="hero">
+    <div class="hero__particles" id="particles"></div>
+    <div class="hero__content">
+      <h1 class="hero__title">Crea tu Vela<br><span class="hero__title--accent">Arterapéutica</span></h1>
+      <p class="hero__subtitle">Diseña velas artesanales personalizadas con propiedades curativas. Selecciona aromas, ceras y colores que transforman tu espacio y tu bienestar.</p>
+      <a href="#configurador" class="btn btn--primary">Comenzar a Diseñar</a>
+    </div>
+    <div class="hero__candle">
+      <div class="candle-3d">
+        <div class="candle-3d__flame"></div>
+        <div class="candle-3d__glow"></div>
+        <div class="candle-3d__body"></div>
+        <div class="candle-3d__base"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONFIGURADOR -->
+  <section id="configurador" class="configurator">
+    <h2 class="section-title">Configurador de Velas</h2>
+    <p class="section-subtitle">Personaliza cada detalle de tu vela artesanal</p>
+
+    <div class="configurator__layout">
+      <!-- PANEL DE OPCIONES -->
+      <div class="configurator__panel">
+
+        <!-- TIPO DE CERA -->
+        <div class="config-group">
+          <h3 class="config-group__title">Tipo de Cera</h3>
+          <div class="config-options" id="waxOptions">
+            <button class="config-option active" data-wax="soy" data-tooltip="Ecológica, quema limpia, retiene bien el aroma">
+              <span class="config-option__icon">🌱</span>
+              <span class="config-option__label">Soja</span>
+            </button>
+            <button class="config-option" data-wax="beeswax" data-tooltip="Purifica el aire, aroma miel natural, quema lenta">
+              <span class="config-option__icon">🐝</span>
+              <span class="config-option__label">Cera de Abeja</span>
+            </button>
+            <button class="config-option" data-wax="coconut" data-tooltip="Ultra suave, excelente difusión de fragancia">
+              <span class="config-option__icon">🥥</span>
+              <span class="config-option__label">Coco</span>
+            </button>
+            <button class="config-option" data-wax="paraffin" data-tooltip="Económica, colores vibrantes, gran lanzamiento de aroma">
+              <span class="config-option__icon">⚗️</span>
+              <span class="config-option__label">Parafina</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- AROMA -->
+        <div class="config-group">
+          <h3 class="config-group__title">
+            Aroma / Aceite Esencial
+            <button class="add-scent-btn" id="addScentBtn" title="Agregar aceite esencial">+ Agregar</button>
+          </h3>
+          <p class="config-hint">Puedes seleccionar varios aromas para crear una mezcla (máx. 3 recomendado)</p>
+          <div class="config-options config-options--grid" id="scentOptions">
+            <button class="config-option active" data-scent="lavender" data-tooltip="Relajante, alivia ansiedad e insomnio">
+              <span class="config-option__icon">💜</span>
+              <span class="config-option__label">Lavanda</span>
+            </button>
+            <button class="config-option" data-scent="vanilla" data-tooltip="Reconfortante, reduce estrés, mejora el ánimo">
+              <span class="config-option__icon">🍦</span>
+              <span class="config-option__label">Vainilla</span>
+            </button>
+            <button class="config-option" data-scent="eucalyptus" data-tooltip="Descongestionante, energizante, aclara la mente">
+              <span class="config-option__icon">🌿</span>
+              <span class="config-option__label">Eucalipto</span>
+            </button>
+            <button class="config-option" data-scent="rose" data-tooltip="Afrodisíaco, armoniza emociones, cuida la piel">
+              <span class="config-option__icon">🌹</span>
+              <span class="config-option__label">Rosa</span>
+            </button>
+            <button class="config-option" data-scent="sandalwood" data-tooltip="Meditación, calma profunda, enfoque mental">
+              <span class="config-option__icon">🪵</span>
+              <span class="config-option__label">Sándalo</span>
+            </button>
+            <button class="config-option" data-scent="cinnamon" data-tooltip="Estimulante, mejora circulación, acogedor">
+              <span class="config-option__icon">🟤</span>
+              <span class="config-option__label">Canela</span>
+            </button>
+            <button class="config-option" data-scent="jasmine" data-tooltip="Antidepresivo natural, aumenta confianza">
+              <span class="config-option__icon">🌸</span>
+              <span class="config-option__label">Jazmín</span>
+            </button>
+            <button class="config-option" data-scent="peppermint" data-tooltip="Energizante, alivia dolores, mejora concentración">
+              <span class="config-option__icon">🍃</span>
+              <span class="config-option__label">Menta</span>
+            </button>
+            <button class="config-option" data-scent="chamomile" data-tooltip="Calma nervios, favorece sueño, digestivo">
+              <span class="config-option__icon">🌼</span>
+              <span class="config-option__label">Manzanilla</span>
+            </button>
+            <button class="config-option" data-scent="ylang" data-tooltip="Euforia suave, reduce presión arterial, sensual">
+              <span class="config-option__icon">🌺</span>
+              <span class="config-option__label">Ylang Ylang</span>
+            </button>
+            <button class="config-option" data-scent="tea_tree" data-tooltip="Antibacteriano potente, purifica el aire y combate hongos">
+              <span class="config-option__icon">🌲</span>
+              <span class="config-option__label">Árbol de Té</span>
+            </button>
+            <button class="config-option" data-scent="lemon" data-tooltip="Energizante cítrico, purificante, mejora concentración">
+              <span class="config-option__icon">🍋</span>
+              <span class="config-option__label">Limón</span>
+            </button>
+            <button class="config-option" data-scent="orange" data-tooltip="Alegre y reconfortante, digestivo, seguro para niños">
+              <span class="config-option__icon">🍊</span>
+              <span class="config-option__label">Naranja</span>
+            </button>
+            <button class="config-option" data-scent="rosemary" data-tooltip="Mejora memoria y concentración, alivia dolor muscular">
+              <span class="config-option__icon">🌿</span>
+              <span class="config-option__label">Romero</span>
+            </button>
+            <button class="config-option" data-scent="frankincense" data-tooltip="Sagrado, meditación profunda, antiinflamatorio">
+              <span class="config-option__icon">✨</span>
+              <span class="config-option__label">Incienso</span>
+            </button>
+            <button class="config-option" data-scent="patchouli" data-tooltip="Afrodisíaco terroso, grounding, estabilizador emocional">
+              <span class="config-option__icon">🍃</span>
+              <span class="config-option__label">Pachulí</span>
+            </button>
+            <button class="config-option" data-scent="bergamot" data-tooltip="Anti-ansiedad, eleva ánimo sin sedar, confianza social">
+              <span class="config-option__icon">🍋</span>
+              <span class="config-option__label">Bergamota</span>
+            </button>
+            <button class="config-option" data-scent="cedarwood" data-tooltip="Calma amaderada, purifica, repele insectos">
+              <span class="config-option__icon">🪵</span>
+              <span class="config-option__label">Cedro</span>
+            </button>
+            <button class="config-option" data-scent="geranium" data-tooltip="Equilibrante hormonal, regenerador de piel">
+              <span class="config-option__icon">🌸</span>
+              <span class="config-option__label">Geranio</span>
+            </button>
+            <button class="config-option" data-scent="clarysage" data-tooltip="Equilibrante hormonal femenino, PMS, euforia">
+              <span class="config-option__icon">💜</span>
+              <span class="config-option__label">Salvia Esclarea</span>
+            </button>
+            <button class="config-option" data-scent="lemongrass" data-tooltip="Repelente de insectos, purificante, elimina olores">
+              <span class="config-option__icon">🌿</span>
+              <span class="config-option__label">Lemongrass</span>
+            </button>
+            <button class="config-option" data-scent="cypress" data-tooltip="Circulación venosa, descongestionante, refrescante">
+              <span class="config-option__icon">🌲</span>
+              <span class="config-option__label">Ciprés</span>
+            </button>
+            <button class="config-option" data-scent="pine" data-tooltip="Forestal purificante, descongestionante, limpieza">
+              <span class="config-option__icon">🌲</span>
+              <span class="config-option__label">Pino</span>
+            </button>
+            <button class="config-option" data-scent="neroli" data-tooltip="Regenerador nervioso, anti-pánico, insomnio">
+              <span class="config-option__icon">🌸</span>
+              <span class="config-option__label">Neroli</span>
+            </button>
+            <button class="config-option" data-scent="ginger" data-tooltip="Caliente, estimulante, alivia náuseas y dolor muscular">
+              <span class="config-option__icon">🟤</span>
+              <span class="config-option__label">Jengibre</span>
+            </button>
+            <button class="config-option" data-scent="blackpepper" data-tooltip="Estimulante picante, analgésico muscular, deportistas">
+              <span class="config-option__icon">⚫</span>
+              <span class="config-option__label">Pimienta Negra</span>
+            </button>
+            <button class="config-option" data-scent="palosanto" data-tooltip="Purificación energética, creatividad, meditación sagrada">
+              <span class="config-option__icon">✨</span>
+              <span class="config-option__label">Palo Santo</span>
+            </button>
+            <button class="config-option" data-scent="mandarina" data-tooltip="Cítrico suave, alegre, seguro para niños y embarazadas">
+              <span class="config-option__icon">🍊</span>
+              <span class="config-option__label">Mandarina</span>
+            </button>
+            <button class="config-option" data-scent="honey" data-tooltip="Aroma dulce cálido, evoca hogar y bienestar">
+              <span class="config-option__icon">🍯</span>
+              <span class="config-option__label">Miel</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- COLOR -->
+        <div class="config-group">
+          <h3 class="config-group__title">Color de la Vela</h3>
+          <div class="color-palette" id="colorPalette">
+            <button class="color-swatch active" data-color="#F5E6D3" style="background:#F5E6D3" title="Crema"></button>
+            <button class="color-swatch" data-color="#E8D5C4" style="background:#E8D5C4" title="Beige"></button>
+            <button class="color-swatch" data-color="#D4A574" style="background:#D4A574" title="Miel"></button>
+            <button class="color-swatch" data-color="#C9956B" style="background:#C9956B" title="Caramelo"></button>
+            <button class="color-swatch" data-color="#9B7653" style="background:#9B7653" title="Marrón claro"></button>
+            <button class="color-swatch" data-color="#B8A9C9" style="background:#B8A9C9" title="Lavanda"></button>
+            <button class="color-swatch" data-color="#F4C2C2" style="background:#F4C2C2" title="Rosa pálido"></button>
+            <button class="color-swatch" data-color="#A8D5BA" style="background:#A8D5BA" title="Salvia"></button>
+            <button class="color-swatch" data-color="#F0E68C" style="background:#F0E68C" title="Amarillo suave"></button>
+            <button class="color-swatch" data-color="#FFFFFF" style="background:#FFFFFF; border:1px solid #ccc" title="Blanco"></button>
+            <button class="color-swatch" data-color="#2D2926" style="background:#2D2926" title="Carbón"></button>
+            <button class="color-swatch" data-color="#8B4513" style="background:#8B4513" title="Siena"></button>
+          </div>
+        </div>
+
+        <!-- CONTENEDOR -->
+        <div class="config-group">
+          <h3 class="config-group__title">Tipo de Contenedor</h3>
+          <div class="config-options" id="containerOptions">
+            <button class="config-option active" data-container="jar" data-tooltip="Clásico frasco de vidrio, reutilizable, elegante">
+              <span class="config-option__icon">🫙</span>
+              <span class="config-option__label">Frasco</span>
+            </button>
+            <button class="config-option" data-container="tin" data-tooltip="Lata portátil, sellada, ideal para viajes">
+              <span class="config-option__icon">🥫</span>
+              <span class="config-option__label">Lata</span>
+            </button>
+            <button class="config-option" data-container="pillar" data-tooltip="Vela libre, decorativa, larga duración">
+              <span class="config-option__icon">🏛️</span>
+              <span class="config-option__label">Pilar</span>
+            </button>
+            <button class="config-option" data-container="teacup" data-tooltip="Taza vintage, encanto único, regalo perfecto">
+              <span class="config-option__icon">🫖</span>
+              <span class="config-option__label">Taza</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- TAMAÑO -->
+        <div class="config-group">
+          <h3 class="config-group__title">Tamaño</h3>
+          <div class="size-selector" id="sizeOptions">
+            <button class="size-option" data-size="small">
+              <div class="size-option__visual size-option__visual--sm"></div>
+              <span class="size-option__label">Pequeña</span>
+              <span class="size-option__detail">~120g · 20h</span>
+            </button>
+            <button class="size-option active" data-size="medium">
+              <div class="size-option__visual size-option__visual--md"></div>
+              <span class="size-option__label">Mediana</span>
+              <span class="size-option__detail">~250g · 40h</span>
+            </button>
+            <button class="size-option" data-size="large">
+              <div class="size-option__visual size-option__visual--lg"></div>
+              <span class="size-option__label">Grande</span>
+              <span class="size-option__detail">~500g · 80h</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PREVIEW -->
+      <div class="configurator__preview">
+        <div class="preview-card">
+          <h3 class="preview-card__title">Vista Previa</h3>
+          <div class="preview-candle" id="previewCandle">
+            <div class="preview-candle__container preview-candle__container--jar" id="previewContainer">
+              <div class="preview-candle__wax" id="previewWax">
+                <div class="preview-candle__wick"></div>
+                <div class="preview-candle__flame" id="previewFlame"></div>
+              </div>
+            </div>
+          </div>
+          <div class="preview-info" id="previewInfo">
+            <div class="preview-info__item">
+              <span class="preview-info__label">Cera:</span>
+              <span class="preview-info__value" id="infoWax">Soja</span>
+            </div>
+            <div class="preview-info__item">
+              <span class="preview-info__label">Aroma:</span>
+              <span class="preview-info__value"><span id="infoScent">Lavanda</span> <span id="infoScentCount" class="preview-info__count"></span></span>
+            </div>
+            <div class="preview-info__item">
+              <span class="preview-info__label">Contenedor:</span>
+              <span class="preview-info__value" id="infoContainer">Frasco</span>
+            </div>
+            <div class="preview-info__item">
+              <span class="preview-info__label">Tamaño:</span>
+              <span class="preview-info__value" id="infoSize">Mediana</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULA CREATOR -->
+  <section id="formula" class="formula">
+    <h2 class="section-title">Creador de Fórmulas</h2>
+    <p class="section-subtitle">Diseña tu mezcla con control exacto de porcentajes y proporciones</p>
+
+    <div class="formula__layout">
+      <!-- BUILDER -->
+      <div class="formula__builder">
+        <!-- Base config -->
+        <div class="formula__config">
+          <div class="formula__config-row">
+            <div class="formula__field">
+              <label class="formula__label">Peso total (g)</label>
+              <input type="number" id="formulaGrams" class="formula__input" value="250" min="50" max="2000" step="10">
+            </div>
+            <div class="formula__field">
+              <label class="formula__label">Carga de fragancia (%)</label>
+              <div class="formula__range-group">
+                <input type="range" id="formulaOilLoad" class="formula__range" value="8" min="4" max="12" step="0.5">
+                <span class="formula__range-val" id="formulaOilLoadVal">8%</span>
+              </div>
+            </div>
+            <div class="formula__field">
+              <label class="formula__label">Cera</label>
+              <div class="formula__wax-btns" id="formulaWaxBtns">
+                <button class="formula__wax-btn active" data-fwax="soy">🌱 Soja</button>
+                <button class="formula__wax-btn" data-fwax="beeswax">🐝 Abeja</button>
+                <button class="formula__wax-btn" data-fwax="coconut">🥥 Coco</button>
+                <button class="formula__wax-btn" data-fwax="paraffin">⚗️ Parafina</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Oil selector -->
+        <div class="formula__oils-section">
+          <div class="formula__oils-header">
+            <h3 class="formula__oils-title">Aceites Esenciales</h3>
+            <div class="formula__oil-add">
+              <select id="formulaOilSelect" class="formula__select">
+                <option value="">+ Agregar aceite...</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="formula__oils-list" id="formulaOilsList">
+            <!-- Dynamic oil rows -->
+          </div>
+
+          <div class="formula__total-bar">
+            <div class="formula__total-track">
+              <div class="formula__total-fill" id="formulaTotalFill" style="width:0%"></div>
+            </div>
+            <div class="formula__total-info">
+              <span id="formulaTotalPct">0%</span> asignado
+              <span class="formula__total-remaining" id="formulaTotalRemaining">(100% restante)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Generate button -->
+        <button class="btn btn--primary btn--large formula__generate-btn" id="formulaGenerateBtn">
+          Generar Fórmula
+        </button>
+      </div>
+
+      <!-- PREVIEW / RESULT -->
+      <div class="formula__result-area">
+        <!-- Live blend preview -->
+        <div class="formula__preview" id="formulaPreview">
+          <h3 class="formula__preview-title">Vista Previa</h3>
+          <div class="formula__pie-wrap">
+            <canvas id="formulaPieChart" width="200" height="200"></canvas>
+          </div>
+          <div class="formula__preview-stats" id="formulaPreviewStats">
+            <p class="formula__preview-empty">Agrega aceites para ver la mezcla</p>
+          </div>
+        </div>
+
+        <!-- Generated formula card (hidden until generated) -->
+        <div class="formula__card hidden" id="formulaCard">
+          <div class="formula__card-header">
+            <h3 class="formula__card-name" id="formulaCardName">Mi Fórmula</h3>
+            <div class="formula__card-actions">
+              <button class="btn btn--sm btn--secondary" id="formulaShareBtn">📋 Compartir</button>
+              <button class="btn btn--sm btn--secondary" id="formulaSaveBtn">💾 Guardar</button>
+            </div>
+          </div>
+
+          <div class="formula__card-body">
+            <div class="formula__card-summary" id="formulaCardSummary"></div>
+            <div class="formula__card-breakdown" id="formulaCardBreakdown"></div>
+            <div class="formula__card-materials" id="formulaCardMaterials"></div>
+            <div class="formula__card-steps" id="formulaCardSteps"></div>
+            <div class="formula__card-notes" id="formulaCardNotes"></div>
+          </div>
+
+          <!-- Share toast -->
+          <div class="formula__toast hidden" id="formulaToast">¡Fórmula copiada al portapapeles!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AROMATERAPIA -->
+  <section id="aromaterapia" class="aromatherapy">
+    <h2 class="section-title section-title--light">Guía de Aromaterapia</h2>
+    <p class="section-subtitle section-subtitle--light">Descubre los beneficios terapéuticos de cada aroma</p>
+
+    <div class="benefits-grid" id="benefitsGrid">
+      <!-- Se llena con JS -->
+    </div>
+  </section>
+
+  <!-- IA AROMATERAPIA -->
+  <section id="ia" class="ai-section">
+    <h2 class="section-title">Asistente IA de Aromaterapia</h2>
+    <p class="section-subtitle">Inteligencia especializada en formulación de velas terapéuticas</p>
+
+    <div class="ai-layout">
+      <!-- BLEND GENERATOR -->
+      <div class="ai-card ai-card--blend">
+        <div class="ai-card__header">
+          <span class="ai-card__icon">⚗️</span>
+          <h3>Generador de Mezclas</h3>
+        </div>
+        <p class="ai-card__desc">Describe tu objetivo y crearé una mezcla sinérgica con proporciones exactas de cada aceite.</p>
+        <div class="ai-recommender">
+          <textarea id="aiBlendInput" rows="3" placeholder="Ej: Quiero una vela para meditar en las mañanas de invierno..."></textarea>
+          <button class="btn btn--primary" id="aiBlendBtn">Generar Mezcla</button>
+        </div>
+        <div class="ai-result hidden" id="aiBlendResult"></div>
+      </div>
+
+      <!-- CHAT -->
+      <div class="ai-card ai-card--chat">
+        <div class="ai-card__header">
+          <span class="ai-card__icon">💬</span>
+          <h3>Experto en Aromaterapia</h3>
+        </div>
+        <div class="ai-chat-messages" id="aiChatMessages">
+          <div class="ai-msg ai-msg--ai">
+            <span class="ai-msg__avatar">🤖</span>
+            <div class="ai-msg__bubble">Hola, soy tu experto en aromaterapia. Pregúntame sobre aceites esenciales, mezclas, seguridad, dosificación, o cualquier duda sobre velas terapéuticas.</div>
+          </div>
+        </div>
+        <div class="ai-chat-input">
+          <input type="text" id="aiChatInput" placeholder="Pregúntale al experto...">
+          <button class="btn btn--primary btn--icon" id="aiChatSend">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECETA -->
+  <section id="receta" class="recipe">
+    <h2 class="section-title">Tu Receta Personalizada</h2>
+    <p class="section-subtitle">Genera la fórmula exacta para fabricar tu vela</p>
+
+    <div class="recipe__content" id="recipeContent">
+      <button class="btn btn--primary btn--large" id="generateBtn">Generar Receta</button>
+    </div>
+
+    <div class="recipe__card hidden" id="recipeCard">
+      <div class="recipe__header">
+        <h3 class="recipe__name" id="recipeName">Vela de Soja — Lavanda</h3>
+        <span class="recipe__badge" id="recipeBadge">Relajante</span>
+      </div>
+
+      <div class="recipe__sections">
+        <div class="recipe__section">
+          <h4>Materiales</h4>
+          <ul class="recipe__list" id="recipeMaterials"></ul>
+        </div>
+        <div class="recipe__section">
+          <h4>Ingredientes</h4>
+          <ul class="recipe__list" id="recipeIngredients"></ul>
+        </div>
+        <div class="recipe__section">
+          <h4>Instrucciones</h4>
+          <ol class="recipe__steps" id="recipeSteps"></ol>
+        </div>
+        <div class="recipe__section">
+          <h4>Consejos Terapéuticos</h4>
+          <p class="recipe__tips" id="recipeTips"></p>
+        </div>
+      </div>
+
+      <div class="recipe__footer">
+        <button class="btn btn--primary" id="saveRecipeBtn">Guardar en Recetario</button>
+        <button class="btn btn--secondary" id="printBtn">Imprimir</button>
+        <button class="btn btn--secondary" id="newRecipeBtn">Nueva Receta</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECETARIO -->
+  <section id="recetario" class="recipebook">
+    <h2 class="section-title">Mi Recetario</h2>
+    <p class="section-subtitle">Tu colección personal de recetas de velas guardadas</p>
+
+    <div class="recipebook__empty" id="recipebookEmpty">
+      <div class="recipebook__empty-icon">📖</div>
+      <p>Tu recetario está vacío</p>
+      <p class="recipebook__empty-hint">Genera una receta y guárdala para verla aquí</p>
+    </div>
+
+    <div class="recipebook__grid" id="recipebookGrid"></div>
+  </section>
+
+  <!-- MODAL: VER RECETA GUARDADA -->
+  <div class="modal-overlay hidden" id="viewRecipeOverlay">
+    <div class="modal modal--wide">
+      <div class="modal__header">
+        <h3 id="viewRecipeTitle">Receta</h3>
+        <button class="modal__close" id="viewRecipeClose">&times;</button>
+      </div>
+      <div class="modal__body" id="viewRecipeBody"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>AromArt — Velas Arterapéuticas Artesanales</p>
+    <p class="footer__small">Creado con pasión para tu bienestar ✨</p>
+  </footer>
+
+  <!-- MODAL: AGREGAR ACEITE -->
+  <div class="modal-overlay hidden" id="modalOverlay">
+    <div class="modal">
+      <div class="modal__header">
+        <h3>Agregar Aceite Esencial</h3>
+        <button class="modal__close" id="modalClose">&times;</button>
+      </div>
+      <form class="modal__form" id="scentForm">
+        <div class="form-row form-row--scent-name">
+          <label for="scentName">Nombre *</label>
+          <div class="scent-name-input-group">
+            <input type="text" id="scentName" placeholder="Ej: Árbol de Té, Romero, Limón..." required autocomplete="off">
+            <button type="button" class="btn btn--research" id="researchBtn" title="Investigar características automáticamente">🔍 Investigar</button>
+          </div>
+          <div class="scent-suggestions hidden" id="scentSuggestions"></div>
+          <p class="form-hint" id="scentAutoHint"></p>
+        </div>
+        <div class="form-row">
+          <label for="scentIcon">Emoji / Icono</label>
+          <input type="text" id="scentIcon" placeholder="Ej: 🌲 🍋 🫒" maxlength="4">
+        </div>
+        <div class="form-row">
+          <label for="scentDesc">Descripción terapéutica *</label>
+          <textarea id="scentDesc" rows="3" placeholder="Propiedades y beneficios del aceite esencial..." required></textarea>
+        </div>
+        <div class="form-row">
+          <label for="scentProps">Propiedades (separadas por coma) *</label>
+          <input type="text" id="scentProps" placeholder="Ej: Antibacterial, Antifúngico, Energizante" required>
+        </div>
+        <div class="form-row">
+          <label for="scentMainProp">Propiedad principal</label>
+          <input type="text" id="scentMainProp" placeholder="Ej: Purificante">
+        </div>
+        <div class="form-row">
+          <label for="scentBest">Mejor para</label>
+          <input type="text" id="scentBest" placeholder="Ej: Mejor para: resfriados, limpieza energética">
+        </div>
+        <div class="form-row">
+          <label for="scentNotes">Notas aromáticas</label>
+          <input type="text" id="scentNotes" placeholder="Ej: Notas frescas herbáceas con fondo medicinal">
+        </div>
+        <div class="modal__actions">
+          <button type="button" class="btn btn--secondary" id="modalCancel">Cancelar</button>
+          <button type="submit" class="btn btn--primary">Agregar Aceite</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="ai.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
